@@ -3,9 +3,9 @@
 import requests
 import time
 
-URL = "http://127.0.0.1:8000/login"
+URL = "http://127.0.0.1:8000/auth/login"
 
-RANDOM_URLS_POOL = [
+RANDOM_IPS_POOL = [
     "127.0.0.1",
     "192.168.1.1",
     "10.14.51.73",
@@ -37,28 +37,14 @@ payload = {
     "password": "wrongpass"
 }
 
-
-for i in range(20):
-    r = requests.post(URL, json=payload)
-    print(i+1, r.status_code, r.text)
-    time.sleep(0.2)
-"""
-Expected output:
-
-first petitions → 200
-luego → 429 Too Many Requests
-
-logs en firewall.log
-"""
-
-'''
-for i in range((len(RANDOM_URLS_POOL))):
-    ip = RANDOM_URLS_POOL[i]
+for i in range((len(RANDOM_IPS_POOL))):
+    fake_ip = RANDOM_IPS_POOL[i]
     headers = {
-        "X-Forwarded-For": ip
+        "X-Forwarded-For": fake_ip
     }
-    url_petition = "http://" + ip + ":8000/login"
-    r = requests.post(url=url_petition, json=payload, headers=headers)
-    print(f"{i+1}, {ip}: {r.status_code} - {r.text}")
+    r = requests.post(URL, json=payload, headers=headers, timeout=2)
+    print(f"{i+1}, {fake_ip}: {r.status_code} - {r.text}")
     time.sleep(0.2)
-'''
+
+# X-Forwarded-For: it identifies the original IP address of a client connecting to a web server through a proxy, load balancer,
+# or other intermediary, preventing the server from only seeing the proxy's IP

@@ -11,4 +11,4 @@ router = APIRouter(prefix="/auth", tags=["Auth"])
 @limiter.limit("5/minute")
 async def login(request: Request, data: LoginRequest):
     logger.info(f"Login attempt from {request.client.host} - user={data.username}")
-    return {"status": "login attempt"}
+    return {"status": "login successful"}

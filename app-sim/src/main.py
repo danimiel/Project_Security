@@ -9,7 +9,7 @@ from src.core.logger import logger
 
 logger.info("Starting application...")
 
-app = FastAPI(title="IoT Device Management API", version="1.0.0")
+app = FastAPI(title="IoT Device Management API", version="1.2.0")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 

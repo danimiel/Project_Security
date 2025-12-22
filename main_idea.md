@@ -215,4 +215,4 @@ Two steps: run firewall, and execute attacker's script
 
 1. cd .\app-sim\
 2. uvicorn src.main:app --reload
-3. (in a different terminal) python attacker/attacker.py
+3. (in a different terminal) python .\attacker\attacker.py
