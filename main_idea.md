@@ -195,3 +195,24 @@ With no Docker, only VSCode:
 [Gateway Domótico (API)]
         ↓
 [IoT Devices simulados]
+
+
+---
+
+```py
+pip install fastapi uvicorn slowapi scikit-learn requests loguru pydantic netaddr
+```
+
+Endpoints examples:
+POST /login
+GET  /camera/feed
+POST /light/on
+GET  /sensor/temp
+
+
+### How to execute
+Two steps: run firewall, and execute attacker's script
+
+1. cd .\app-sim\
+2. uvicorn src.main:app --reload
+3. (in a different terminal) python attacker/attacker.py

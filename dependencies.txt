@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+slowapi
+loguru
+netaddr
+requests
+pydantic
