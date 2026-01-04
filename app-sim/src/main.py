@@ -26,13 +26,3 @@ app.include_router(auth.router)
 app.include_router(devices.router)
 app.middleware("http")(mitm_middleware)
 app.include_router(sensor_router)
-
-
-
-"""mitm_monitor = MitMMonitor()
-sensor_monitor = SensorMonitor()
-firmware_monitor = FirmwareMonitor()
-
-mitm_monitor.inspect(client_id)
-sensor_monitor.inspect("temperature", value)
-firmware_monitor.inspect(device_id)"""
