@@ -9,7 +9,7 @@ async def list_devices():
     return {"devices": ["camera", "thermostat", "lock"]}
 
 
-@router.post("/device/update")
+@router.post("/update")
 async def firmware_update(payload: dict):
     device_id = payload.get("device_id", "unknown")
 

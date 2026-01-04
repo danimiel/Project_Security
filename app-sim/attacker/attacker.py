@@ -56,5 +56,5 @@ def mitm_attack():
 # or other intermediary, preventing the server from only seeing the proxy's IP
 
 if __name__ == "__main__":
-    print("[*] Credential stuffing attack")
+    print("[*] Simulating MitM and Credential stuffing attack")
     mitm_attack()
