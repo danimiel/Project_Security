@@ -6,4 +6,4 @@ WHITELIST = [
     "127.0.0.1/32"
 ] # whitelisted IP ranges
 
-MAX_LOGIN_ATTEMPTS = 5
+MAX_LOGIN_ATTEMPTS = 8
