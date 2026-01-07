@@ -32,3 +32,12 @@ def test_sensor_temp_poisoned_low():
     )
     assert response.status_code == 403
     assert response.json() == {"detail":"Anomalous sensor data detected (value: -100.0)"}
+
+def test_sensor_not_listed():     
+    value = 25.0
+    response = client.post(
+        "/sensors/humidity",
+        headers={"X-Forwarded-For": "192.168.1.100"},
+        json={"value": value}
+    )
+    assert response.status_code == 404
